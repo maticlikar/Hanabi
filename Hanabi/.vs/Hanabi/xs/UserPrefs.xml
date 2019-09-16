@@ -1,0 +1,53 @@
+﻿<Properties StartupConfiguration="{203F4D0E-28D1-3522-4D11-9B74BC97B5A1}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FireworksManager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/FirebaseData.cs" Line="34" Column="1" />
+      <File FileName="Assets/Scripts/PhotonConnect.cs" />
+      <File FileName="Assets/Scripts/ScreenManager.cs" />
+      <File FileName="Assets/Scripts/PhotonChatHandler.cs" />
+      <File FileName="Assets/Scripts/PopUpsManager.cs" />
+      <File FileName="Assets/Scripts/PopUpWindow.cs" />
+      <File FileName="Assets/Scripts/PhotonRooms.cs" />
+      <File FileName="Assets/Scripts/MainScreenManager.cs" />
+      <File FileName="Assets/Scripts/Utility.cs" />
+      <File FileName="Assets/Scripts/Friend.cs" />
+      <File FileName="Assets/Scripts/SocialScreenManager.cs" />
+      <File FileName="Assets/Scripts/PhotonReadyUp.cs" />
+      <File FileName="Assets/Scripts/RoomMember.cs" />
+      <File FileName="Assets/Scripts/Card.cs" />
+      <File FileName="Assets/Scripts/CardInfo.cs" />
+      <File FileName="Assets/Scripts/GameManager.cs" />
+      <File FileName="Assets/Scripts/LevelManager.cs" />
+      <File FileName="Assets/Scripts/Persistence.cs" />
+      <File FileName="Assets/Scripts/Hand.cs" />
+      <File FileName="Assets/Scripts/LogOutputHandler.cs" />
+      <File FileName="Assets/Scripts/CardsManager.cs" />
+      <File FileName="Assets/Scripts/HandsManager.cs" Line="70" Column="44" />
+      <File FileName="Assets/Scripts/FireworksManager.cs" Line="63" Column="31" />
+      <File FileName="Assets/Scripts/HandDropZone.cs" Line="26" Column="1" />
+      <File FileName="Assets/Scripts/DraggableCard.cs" Line="44" Column="1" />
+      <File FileName="Assets/Scripts/NotValidDropZone.cs" Line="9" Column="1" />
+      <File FileName="Assets/Scripts/FireworksDropZone.cs" Line="39" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Hanabi" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="FireworksManager.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="26485c1c-6e4a-42ef-aa52-3b4cf2980d2e" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

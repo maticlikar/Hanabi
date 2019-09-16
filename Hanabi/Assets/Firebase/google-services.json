@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "672791344509",
+    "firebase_url": "https://hanabi-86ab5.firebaseio.com",
+    "project_id": "hanabi-86ab5",
+    "storage_bucket": "hanabi-86ab5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672791344509:android:a854aed0f99afa16",
+        "android_client_info": {
+          "package_name": "com.StrudelStudio.Hanabi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672791344509-713gcs25v7jpfpqc2281hrgmlfg32u6g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeZl82BlEYZUaWqWjUAlRFtGEh0hwaJ1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672791344509-713gcs25v7jpfpqc2281hrgmlfg32u6g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
