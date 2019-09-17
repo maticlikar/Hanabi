@@ -14,13 +14,15 @@ public class ScreenManager : MonoBehaviour {
     // List of all screens (screens[0] should be what appears first. screens[1] is the alternative)
     public List<GameObject> screens;
 
-    private async void Awake() {
+    private void Awake() {
         if (_instance != null && _instance != this) {
             Destroy(this.gameObject);
         } else {
             _instance = this;
         }
+    }
 
+    public async void Start() {
         if (!HasAccount()) {
             activeScreen = screens[0];
             activeScreen.SetActive(true);
@@ -41,7 +43,7 @@ public class ScreenManager : MonoBehaviour {
 
         string userPath = "users/" + uid;
    
-        DataSnapshot usernameSnapshot  = await FirebaseDatabase.DefaultInstance.GetReference(userPath).GetValueAsync();
+        DataSnapshot usernameSnapshot  = await FirebaseData.Instance.reference.Child(userPath).GetValueAsync();
         string username = usernameSnapshot.Child("username").Value.ToString();
 
         await PhotonConnect.Instance.Connect(username, PlayerPrefs.GetString("uid", ""));

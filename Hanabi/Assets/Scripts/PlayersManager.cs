@@ -35,7 +35,7 @@ public class PlayersManager : MonoBehaviour {
 
     public async Task SavePlayerOrder(string playersJson) {
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 

@@ -1,33 +1,35 @@
 ﻿<Properties StartupConfiguration="{203F4D0E-28D1-3522-4D11-9B74BC97B5A1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FireworksDropZone.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PopUpsManager.cs">
     <Files>
       <File FileName="Assets/Scripts/FirebaseData.cs" Line="34" Column="1" />
-      <File FileName="Assets/Scripts/PhotonConnect.cs" />
+      <File FileName="Assets/Scripts/PhotonConnect.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ScreenManager.cs" />
-      <File FileName="Assets/Scripts/PhotonChatHandler.cs" />
-      <File FileName="Assets/Scripts/PopUpsManager.cs" />
+      <File FileName="Assets/Scripts/PhotonChatHandler.cs" Line="137" Column="1" />
+      <File FileName="Assets/Scripts/PopUpsManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PopUpWindow.cs" />
-      <File FileName="Assets/Scripts/PhotonRooms.cs" />
-      <File FileName="Assets/Scripts/MainScreenManager.cs" />
+      <File FileName="Assets/Scripts/PhotonRooms.cs" Line="52" Column="1" />
+      <File FileName="Assets/Scripts/MainScreenManager.cs" Line="38" Column="46" />
       <File FileName="Assets/Scripts/Utility.cs" />
-      <File FileName="Assets/Scripts/Friend.cs" />
+      <File FileName="Assets/Scripts/Friend.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SocialScreenManager.cs" />
-      <File FileName="Assets/Scripts/PhotonReadyUp.cs" />
+      <File FileName="Assets/Scripts/PhotonReadyUp.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/RoomMember.cs" />
-      <File FileName="Assets/Scripts/Card.cs" />
-      <File FileName="Assets/Scripts/CardInfo.cs" />
-      <File FileName="Assets/Scripts/GameManager.cs" />
-      <File FileName="Assets/Scripts/LevelManager.cs" />
-      <File FileName="Assets/Scripts/Persistence.cs" />
-      <File FileName="Assets/Scripts/Hand.cs" />
-      <File FileName="Assets/Scripts/LogOutputHandler.cs" />
-      <File FileName="Assets/Scripts/CardsManager.cs" />
-      <File FileName="Assets/Scripts/HandsManager.cs" />
-      <File FileName="Assets/Scripts/FireworksManager.cs" Line="63" Column="31" />
-      <File FileName="Assets/Scripts/HandDropZone.cs" />
-      <File FileName="Assets/Scripts/DraggableCard.cs" />
-      <File FileName="Assets/Scripts/NotValidDropZone.cs" />
-      <File FileName="Assets/Scripts/FireworksDropZone.cs" Line="39" Column="1" />
+      <File FileName="Assets/Scripts/Card.cs" Line="7" Column="25" />
+      <File FileName="Assets/Scripts/CardInfo.cs" Line="9" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LevelManager.cs" Line="30" Column="44" />
+      <File FileName="Assets/Scripts/Persistence.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Hand.cs" Line="7" Column="2" />
+      <File FileName="Assets/Scripts/LogOutputHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CardsManager.cs" Line="34" Column="1" />
+      <File FileName="Assets/Scripts/HandsManager.cs" Line="98" Column="73" />
+      <File FileName="Assets/Scripts/FireworksManager.cs" Line="86" Column="1" />
+      <File FileName="Assets/Scripts/DraggableCard.cs" Line="55" Column="26" />
+      <File FileName="Assets/Scripts/HandDropZone.cs" Line="20" Column="28" />
+      <File FileName="Assets/Scripts/NotValidDropZone.cs" Line="9" Column="1" />
+      <File FileName="Assets/Scripts/FireworksDropZone.cs" Line="17" Column="1" />
+      <File FileName="Assets/Scripts/DiscardManager.cs" Line="25" Column="86" />
+      <File FileName="Assets/Scripts/PlayersManager.cs" Line="36" Column="60" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -35,7 +37,7 @@
           <Node name="Hanabi" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="FireworksDropZone.cs" selected="True" />
+                <Node name="PopUpsManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -45,7 +47,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5f81345b-da9c-43c3-9c49-1201c2617dd9" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e4cd6549-150a-45ad-b98e-e87d3c7d32f0" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -37,7 +37,7 @@ public class MainScreenManager : MonoBehaviour {
     public async Task AddRoomMemberToUI(string uid) {
         string usernamePath = "users/" + uid;
 
-        DataSnapshot usernameSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(usernamePath).GetValueAsync();
+        DataSnapshot usernameSnapshot = await FirebaseData.Instance.reference.Child(usernamePath).GetValueAsync();
         string username = usernameSnapshot.Child("username").Value.ToString();
 
         GameObject r = Instantiate(roomMemberPrefab, roomMemberList, false);

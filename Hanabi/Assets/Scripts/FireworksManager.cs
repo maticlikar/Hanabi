@@ -34,7 +34,7 @@ public class FireworksManager : MonoBehaviour {
             "}";
 
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 
@@ -46,7 +46,7 @@ public class FireworksManager : MonoBehaviour {
         print("SaveNewFireworkPart");
         // Get latest room
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 
@@ -80,13 +80,13 @@ public class FireworksManager : MonoBehaviour {
         print("UpdateFireworksProgressUI");
         // Get latest room
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 
         // Get firework progress
         string fireworkProgressPath = "active_rooms/" + currentRoom + "/firework_progress";
-        DataSnapshot fireworkProgressSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(fireworkProgressPath).GetValueAsync();
+        DataSnapshot fireworkProgressSnapshot = await FirebaseData.Instance.reference.Child(fireworkProgressPath).GetValueAsync();
 
         ClearFireworksUI(color);
 

@@ -109,7 +109,7 @@ public class PhotonChatHandler : MonoBehaviour, IChatClientListener {
     public async Task PopUpRoomInvite(string friendUID) {
         string userPath = "users/" + friendUID;
 
-        DataSnapshot friendSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(userPath).GetValueAsync();
+        DataSnapshot friendSnapshot = await FirebaseData.Instance.reference.Child(userPath).GetValueAsync();
         string friendName = friendSnapshot.Child("username").Value.ToString();
 
         PopUpWindow roomInvitePopup = PopUpsManager.Instance.GetPopUp("RoomInvitePopUp");
@@ -135,7 +135,7 @@ public class PhotonChatHandler : MonoBehaviour, IChatClientListener {
     public async Task InitializeChatFriends() {
         string friendsPath = "friends/" + PlayerPrefs.GetString("uid");
 
-        DataSnapshot friendsSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(friendsPath).GetValueAsync();
+        DataSnapshot friendsSnapshot = await FirebaseData.Instance.reference.Child(friendsPath).GetValueAsync();
 
         List<string> friendUIDs = friendsSnapshot.Children.ToList().Select((f) => f.Key).ToList();
 

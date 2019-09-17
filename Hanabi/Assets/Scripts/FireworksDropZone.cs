@@ -11,12 +11,12 @@ public class FireworksDropZone : MonoBehaviour, IDropHandler {
         string color = card.color;
 
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 
         string fireworkProgressPath = "active_rooms/" + currentRoom + "/firework_progress/" + color + "_progress";
-        DataSnapshot fireworkProgressSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(fireworkProgressPath).GetValueAsync();
+        DataSnapshot fireworkProgressSnapshot = await FirebaseData.Instance.reference.Child(fireworkProgressPath).GetValueAsync();
 
         int fireworkProgress = int.Parse(fireworkProgressSnapshot.Value.ToString());
 

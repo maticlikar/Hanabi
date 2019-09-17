@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour {
             print("InitializeLevel");
             await FireworksManager.Instance.InitializeFireworkProgress();
             await PlayersManager.Instance.InitializePlayerOrder();
-            //await DiscardArea.Instance.InitializeDiscardTop();
+            await DiscardManager.Instance.InitializeDiscardTop();
             await CardsManager.Instance.ShuffleAndSaveCards();
             await HandsManager.Instance.DistributeHands();
 

@@ -50,7 +50,7 @@ public class PhotonRooms : MonoBehaviourPunCallbacks {
     public async Task JoinFriendsLatestRoom(string friendUID) {
         string latestRoomPath = "user2latest_room/" + friendUID;
 
-        DataSnapshot friendSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot friendSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string latestRoomId = friendSnapshot.Value.ToString();
 

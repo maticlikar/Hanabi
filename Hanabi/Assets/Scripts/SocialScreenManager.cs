@@ -28,7 +28,7 @@ public class SocialScreenManager : MonoBehaviour {
     public async Task AddFriendToUI(string friendUID) { 
         string usernamePath = "users/" + friendUID;
 
-        DataSnapshot usernameSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(usernamePath).GetValueAsync();
+        DataSnapshot usernameSnapshot = await FirebaseData.Instance.reference.Child(usernamePath).GetValueAsync();
         string friendName = usernameSnapshot.Child("username").Value.ToString();
 
         GameObject f = Instantiate(friendPrefab, friendList, false);
@@ -46,7 +46,7 @@ public class SocialScreenManager : MonoBehaviour {
     public async Task InitializeFriendList() {
         string friendsPath = "friends/" + PlayerPrefs.GetString("uid");
 
-        DataSnapshot friendsSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(friendsPath).GetValueAsync();
+        DataSnapshot friendsSnapshot = await FirebaseData.Instance.reference.Child(friendsPath).GetValueAsync();
 
         List<string> friendUIDs = friendsSnapshot.Children.ToList().Select((f) => f.Key).ToList();
 
@@ -64,9 +64,9 @@ public class SocialScreenManager : MonoBehaviour {
         string usernamePath = "users/" + myUID;
         string friendsPath = "friends/" + myUID;
 
-        DataSnapshot friendSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(friendPath).GetValueAsync();
-        DataSnapshot usernameSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(usernamePath).GetValueAsync();
-        DataSnapshot friendsSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(friendsPath).GetValueAsync();
+        DataSnapshot friendSnapshot = await FirebaseData.Instance.reference.Child(friendPath).GetValueAsync();
+        DataSnapshot usernameSnapshot = await FirebaseData.Instance.reference.Child(usernamePath).GetValueAsync();
+        DataSnapshot friendsSnapshot = await FirebaseData.Instance.reference.Child(friendsPath).GetValueAsync();
 
         string friendName = (string)friendSnapshot.Child("username").Value;
         string myName = (string)usernameSnapshot.Child("username").Value;
