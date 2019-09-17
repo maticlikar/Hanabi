@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{203F4D0E-28D1-3522-4D11-9B74BC97B5A1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FireworksManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FireworksDropZone.cs">
     <Files>
       <File FileName="Assets/Scripts/FirebaseData.cs" Line="34" Column="1" />
       <File FileName="Assets/Scripts/PhotonConnect.cs" />
@@ -22,11 +22,11 @@
       <File FileName="Assets/Scripts/Hand.cs" />
       <File FileName="Assets/Scripts/LogOutputHandler.cs" />
       <File FileName="Assets/Scripts/CardsManager.cs" />
-      <File FileName="Assets/Scripts/HandsManager.cs" Line="70" Column="44" />
+      <File FileName="Assets/Scripts/HandsManager.cs" />
       <File FileName="Assets/Scripts/FireworksManager.cs" Line="63" Column="31" />
-      <File FileName="Assets/Scripts/HandDropZone.cs" Line="26" Column="1" />
-      <File FileName="Assets/Scripts/DraggableCard.cs" Line="44" Column="1" />
-      <File FileName="Assets/Scripts/NotValidDropZone.cs" Line="9" Column="1" />
+      <File FileName="Assets/Scripts/HandDropZone.cs" />
+      <File FileName="Assets/Scripts/DraggableCard.cs" />
+      <File FileName="Assets/Scripts/NotValidDropZone.cs" />
       <File FileName="Assets/Scripts/FireworksDropZone.cs" Line="39" Column="1" />
     </Files>
     <Pads>
@@ -35,7 +35,7 @@
           <Node name="Hanabi" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="FireworksManager.cs" selected="True" />
+                <Node name="FireworksDropZone.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -45,7 +45,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="26485c1c-6e4a-42ef-aa52-3b4cf2980d2e" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5f81345b-da9c-43c3-9c49-1201c2617dd9" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

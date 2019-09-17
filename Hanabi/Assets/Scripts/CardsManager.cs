@@ -82,14 +82,20 @@ public class CardsManager : MonoBehaviour {
 
         // Transform the datasnapshots into an array of cards to deal with them easier
         for (int i = 0; i < dataSnapshotOfCards.Count; i++) {
-            string newCardColor = dataSnapshotOfCards[i].Child("color").Value.ToString();
-            int newCardNumber = int.Parse(dataSnapshotOfCards[i].Child("number").Value.ToString());
-
-            CardInfo c = new CardInfo(newCardColor, newCardNumber);
+            CardInfo c = JsonToCard(dataSnapshotOfCards[i]);
             cards.Add(c);
         }
 
         return cards;
+    }
+
+    public CardInfo JsonToCard(DataSnapshot cardDataSnapshot) {
+        string newCardColor = cardDataSnapshot.Child("color").Value.ToString();
+        int newCardNumber = int.Parse(cardDataSnapshot.Child("number").Value.ToString());
+
+        CardInfo c = new CardInfo(newCardColor, newCardNumber);
+
+        return c;
     }
 
     public void InstantiateNewCard(CardInfo c, Transform parent) {

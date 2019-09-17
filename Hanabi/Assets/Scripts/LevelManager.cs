@@ -49,8 +49,8 @@ public class LevelManager : MonoBehaviour {
         print("InitializeUI");
 
         await HandsManager.Instance.InitializeHandIDs();
-        await HandsManager.Instance.InitializeHandsUI();
-
+        await HandsManager.Instance.InitializeHandNamesUI();
+        await HandsManager.Instance.InitializeHandsCardsUI();
         ScreenManager.Instance.SwitchTo("GameScreen");
 
         print("/InitializeUI");

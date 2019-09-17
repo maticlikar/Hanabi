@@ -43,6 +43,7 @@ public class FireworksManager : MonoBehaviour {
     }
 
     public async Task SaveNewFireworkPart(CardInfo c) {
+        print("SaveNewFireworkPart");
         // Get latest room
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
         DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
@@ -54,9 +55,7 @@ public class FireworksManager : MonoBehaviour {
 
         await FirebaseData.Instance.reference.Child("active_rooms").Child(currentRoom).Child("firework_progress").Child(color + "_progress").SetValueAsync(number);
 
-        await Task.Delay(2000);
-
-        print("Done saving fireworks");
+        print("/SaveNewFireworkPart");
     }
 
     public Transform ColorToFireworkProgressParent(string color) {
@@ -78,6 +77,7 @@ public class FireworksManager : MonoBehaviour {
 
     [PunRPC]
     public async Task UpdateFireworksProgressUI(string color) {
+        print("UpdateFireworksProgressUI");
         // Get latest room
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
         DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
@@ -93,6 +93,7 @@ public class FireworksManager : MonoBehaviour {
         int progress = int.Parse(fireworkProgressSnapshot.Child(color + "_progress").Value.ToString());
 
         UpdateFireworkColor(color, progress, ColorToFireworkProgressParent(color));
+        print("/UpdateFireworksProgressUI");
     }
 
     public void UpdateFireworkColor(string color, int progress, Transform parent) {

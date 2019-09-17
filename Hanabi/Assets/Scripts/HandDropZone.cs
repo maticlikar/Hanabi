@@ -18,7 +18,7 @@ public class HandDropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
 
         HandsManager.Instance.photonView.RPC(
             "UpdateHandUI",
-            RpcTarget.Others,
+            RpcTarget.All,
             PlayerPrefs.GetString("uid")
         );
 
@@ -47,7 +47,9 @@ public class HandDropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
         DraggableCard card = eventData.pointerDrag.GetComponent<DraggableCard>();
 
         if (card != null) {
-            card.placeholder.transform.SetParent(HandsManager.Instance.myHand.transform);
+            if (card.placeholder != null) {
+                card.placeholder.transform.SetParent(HandsManager.Instance.myHand.transform);
+            }
         }
     }
 
@@ -59,7 +61,9 @@ public class HandDropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
         DraggableCard card = eventData.pointerDrag.GetComponent<DraggableCard>();
 
         if (card != null) {
-            card.placeholder.transform.SetParent(CardsManager.Instance.draggingParent);
+            if (card.placeholder != null) {
+                card.placeholder.transform.SetParent(CardsManager.Instance.draggingParent);
+            }
         }
     }
 }

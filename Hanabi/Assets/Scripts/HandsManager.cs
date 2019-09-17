@@ -10,7 +10,9 @@ public class HandsManager : MonoBehaviour {
     public static HandsManager Instance { get { return _instance; } }
 
     public GameObject myHand;
-    public GameObject otherHandsParent;
+    public GameObject[] otherHands;
+
+    //public GameObject otherHandsParent;
 
     public PhotonView photonView;
 
@@ -22,7 +24,72 @@ public class HandsManager : MonoBehaviour {
         }
     }
 
+    public async Task DrawCard(int oldCardIndex) {
+        string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
+        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+
+        string currentRoom = latestRoomSnapshot.Value.ToString();
+
+        string myHandPath = "active_rooms/" + currentRoom + "/hands/" + PlayerPrefs.GetString("uid");
+        DataSnapshot myHandSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(myHandPath).GetValueAsync();
+
+        List<CardInfo> handCards = CardsManager.Instance.DataSnapshotToCards(myHandSnapshot);
+
+        string deckTopPath = "active_rooms/" + currentRoom + "/deck_top";
+        DataSnapshot deckTopSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(deckTopPath).GetValueAsync();
+
+        int deckTop = int.Parse(deckTopSnapshot.Value.ToString());
+
+        string newCardPath = "active_rooms/" + currentRoom + "/deck/" + Utility.Instance.PadNumber(deckTop.ToString());
+        DataSnapshot newCardSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(newCardPath).GetValueAsync();
+
+        CardInfo newCard = CardsManager.Instance.JsonToCard(newCardSnapshot);
+
+        handCards[oldCardIndex] = newCard;
+
+        await SaveNewHand(PlayerPrefs.GetString("uid"), handCards);
+        await FirebaseData.Instance.reference.Child("active_rooms").Child(currentRoom).Child("deck_top").SetValueAsync(deckTop + 1);
+
+        photonView.RPC(
+            "UpdateHandUI",
+            RpcTarget.All,
+            PlayerPrefs.GetString("uid")
+        );
+    }
+
+    public async Task InitializeHandNamesUI() {
+        print("InitializeHandNamesUI");
+        string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
+        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+
+        string currentRoom = latestRoomSnapshot.Value.ToString();
+
+        string playersPath = "active_rooms/" + currentRoom + "/players";
+        DataSnapshot players = await FirebaseDatabase.DefaultInstance.GetReference(playersPath).GetValueAsync();
+
+        List<string> playerUIDs = players.Children.Select((p) => (string)p.Value).ToList();
+
+        foreach (string uid in playerUIDs) {
+            if (!uid.Equals(PlayerPrefs.GetString("uid"))) {
+                string playerPath = "users/" + uid + "/username";
+                DataSnapshot playerSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(playerPath).GetValueAsync();
+
+                string playerName = playerSnapshot.Value.ToString();
+
+                print(playerName);
+
+                Hand h = FindHand(uid).GetComponent<Hand>();
+
+                print(h.transform.name);
+
+                h.nameText.text = playerName;
+            }
+        }
+        print("/InitializeHandNamesUI");
+    }
+
     public async Task InitializeHandIDs() {
+        print("InitializeHandIDs");
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
         DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
 
@@ -39,14 +106,14 @@ public class HandsManager : MonoBehaviour {
 
         // Set other hand ids
         for (int i = myUIDIndex + 1; i < playerUIDs.Count; i++) {
-            Transform parent = otherHandsParent.transform.GetChild(childIndex);
+            Transform parent = otherHands[childIndex].transform;
             parent.GetComponent<Hand>().uid = playerUIDs[i];
 
             childIndex++;
         }
 
         for (int i = 0; i < myUIDIndex; i++) {
-            Transform parent = otherHandsParent.transform.GetChild(childIndex);
+            Transform parent = otherHands[childIndex].transform;
             parent.GetComponent<Hand>().uid = playerUIDs[i];
 
             childIndex++;
@@ -54,6 +121,7 @@ public class HandsManager : MonoBehaviour {
 
         // Set my hand id
         myHand.GetComponent<Hand>().uid = PlayerPrefs.GetString("uid");
+        print("/InitializeHandIDs");
     }
 
     public async Task DistributeHands() {
@@ -92,7 +160,7 @@ public class HandsManager : MonoBehaviour {
         await FirebaseData.Instance.reference.Child("active_rooms").Child(currentRoom).Child("deck_top").SetValueAsync(deckTop);
     }
 
-    public async Task InitializeHandsUI() {
+    public async Task InitializeHandsCardsUI() {
         // Get the room
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
         DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
@@ -139,7 +207,7 @@ public class HandsManager : MonoBehaviour {
         if(uid.Equals(PlayerPrefs.GetString("uid"))) {
             return myHand.transform;
         } else {
-            List<Transform> hands = Utility.Instance.GetAllChildren(otherHandsParent.transform);
+            List<Transform> hands = otherHands.Select((h) => h.transform).ToList();
 
             foreach (Transform h in hands) {
                 if (h.GetComponent<Hand>().uid.Equals(uid)) {
