@@ -41,5 +41,6 @@ MonoBehaviour:
   - ThingsEveryPlayerNeedsToDo
   - InitializeUI
   - UpdateFireworksProgressUI
+  - UpdateDiscardPileUI
   DisableAutoOpenWizard: 1
   ShowSettings: 0

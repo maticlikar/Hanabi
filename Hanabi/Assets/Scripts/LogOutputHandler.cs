@@ -32,7 +32,7 @@ public class LogOutputHandler : MonoBehaviour {
         //Add any User, Game, or Device MetaData that would be useful to finding issues later
         //loggingForm.AddField("Device_Model", SystemInfo.deviceModel);
         loggingForm.AddField("Player", PlayerPrefs.GetString("uid"));
-        loggingForm.AddField("Time", DateTime.Now.ToString("h:mm:ss tt"));
+        loggingForm.AddField("Time", DateTime.Now.ToString("HH:mm:ss.FFF"));
         loggingForm.AddField("Message", logString);
 
         StartCoroutine(SendData(loggingForm));

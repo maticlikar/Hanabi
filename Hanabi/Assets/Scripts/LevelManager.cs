@@ -28,7 +28,6 @@ public class LevelManager : MonoBehaviour {
 
     public async Task InitializeLevel() {
         if (PhotonNetwork.IsMasterClient) {
-            print("InitializeLevel");
             await FireworksManager.Instance.InitializeFireworkProgress();
             await PlayersManager.Instance.InitializePlayerOrder();
             await DiscardManager.Instance.InitializeDiscardTop();
@@ -39,21 +38,15 @@ public class LevelManager : MonoBehaviour {
                 "InitializeUI",
                 RpcTarget.All
             );
-
-            print("/InitializeLevel");
         }
     }
 
     [PunRPC]
     public async Task InitializeUI() {
-        print("InitializeUI");
-
         await HandsManager.Instance.InitializeHandIDs();
         await HandsManager.Instance.InitializeHandNamesUI();
         await HandsManager.Instance.InitializeHandsCardsUI();
         ScreenManager.Instance.SwitchTo("GameScreen");
-
-        print("/InitializeUI");
     }
 
     public void SetUpScreenManager() {

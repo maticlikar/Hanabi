@@ -26,22 +26,22 @@ public class HandsManager : MonoBehaviour {
 
     public async Task DrawCard(int oldCardIndex) {
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 
         string myHandPath = "active_rooms/" + currentRoom + "/hands/" + PlayerPrefs.GetString("uid");
-        DataSnapshot myHandSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(myHandPath).GetValueAsync();
+        DataSnapshot myHandSnapshot = await FirebaseData.Instance.reference.Child(myHandPath).GetValueAsync();
 
         List<CardInfo> handCards = CardsManager.Instance.DataSnapshotToCards(myHandSnapshot);
 
         string deckTopPath = "active_rooms/" + currentRoom + "/deck_top";
-        DataSnapshot deckTopSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(deckTopPath).GetValueAsync();
+        DataSnapshot deckTopSnapshot = await FirebaseData.Instance.reference.Child(deckTopPath).GetValueAsync();
 
         int deckTop = int.Parse(deckTopSnapshot.Value.ToString());
 
         string newCardPath = "active_rooms/" + currentRoom + "/deck/" + Utility.Instance.PadNumber(deckTop.ToString());
-        DataSnapshot newCardSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(newCardPath).GetValueAsync();
+        DataSnapshot newCardSnapshot = await FirebaseData.Instance.reference.Child(newCardPath).GetValueAsync();
 
         CardInfo newCard = CardsManager.Instance.JsonToCard(newCardSnapshot);
 
@@ -58,45 +58,38 @@ public class HandsManager : MonoBehaviour {
     }
 
     public async Task InitializeHandNamesUI() {
-        print("InitializeHandNamesUI");
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 
         string playersPath = "active_rooms/" + currentRoom + "/players";
-        DataSnapshot players = await FirebaseDatabase.DefaultInstance.GetReference(playersPath).GetValueAsync();
+        DataSnapshot players = await FirebaseData.Instance.reference.Child(playersPath).GetValueAsync();
 
         List<string> playerUIDs = players.Children.Select((p) => (string)p.Value).ToList();
 
         foreach (string uid in playerUIDs) {
             if (!uid.Equals(PlayerPrefs.GetString("uid"))) {
                 string playerPath = "users/" + uid + "/username";
-                DataSnapshot playerSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(playerPath).GetValueAsync();
+                DataSnapshot playerSnapshot = await FirebaseData.Instance.reference.Child(playerPath).GetValueAsync();
 
                 string playerName = playerSnapshot.Value.ToString();
 
-                print(playerName);
-
                 Hand h = FindHand(uid).GetComponent<Hand>();
-
-                print(h.transform.name);
 
                 h.nameText.text = playerName;
             }
         }
-        print("/InitializeHandNamesUI");
     }
 
     public async Task InitializeHandIDs() {
-        print("InitializeHandIDs");
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 
         string playersPath = "active_rooms/" + currentRoom + "/players";
-        DataSnapshot players = await FirebaseDatabase.DefaultInstance.GetReference(playersPath).GetValueAsync();
+        DataSnapshot players = await FirebaseData.Instance.reference.Child(playersPath).GetValueAsync();
 
         List<string> playerUIDs = players.Children.Select((p) => (string)p.Value).ToList();
 
@@ -121,25 +114,24 @@ public class HandsManager : MonoBehaviour {
 
         // Set my hand id
         myHand.GetComponent<Hand>().uid = PlayerPrefs.GetString("uid");
-        print("/InitializeHandIDs");
     }
 
     public async Task DistributeHands() {
         // Get the room
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 
         // Get players
         string playersPath = "active_rooms/" + currentRoom + "/players";
-        DataSnapshot playersSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(playersPath).GetValueAsync();
+        DataSnapshot playersSnapshot = await FirebaseData.Instance.reference.Child(playersPath).GetValueAsync();
 
         string[] playerUIDs = playersSnapshot.Children.Select((p) => (string)p.Value).ToArray();
 
         // Get the cards
         string deckPath = "active_rooms/" + currentRoom + "/deck";
-        DataSnapshot deckSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(deckPath).GetValueAsync();
+        DataSnapshot deckSnapshot = await FirebaseData.Instance.reference.Child(deckPath).GetValueAsync();
 
         List<CardInfo> deck = CardsManager.Instance.DataSnapshotToCards(deckSnapshot);
 
@@ -163,13 +155,13 @@ public class HandsManager : MonoBehaviour {
     public async Task InitializeHandsCardsUI() {
         // Get the room
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 
         // Get players
         string playersPath = "active_rooms/" + currentRoom + "/players";
-        DataSnapshot playersSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(playersPath).GetValueAsync();
+        DataSnapshot playersSnapshot = await FirebaseData.Instance.reference.Child(playersPath).GetValueAsync();
 
         string[] playerUIDs = playersSnapshot.Children.Select((p) => (string)p.Value).ToArray();
 
@@ -185,13 +177,13 @@ public class HandsManager : MonoBehaviour {
 
         // Get the room
         string latestRoomPath = "user2latest_room/" + uid;
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 
         // Get the hand
         string handPath = "active_rooms/" + currentRoom + "/hands/" + uid;
-        DataSnapshot handSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(handPath).GetValueAsync();
+        DataSnapshot handSnapshot = await FirebaseData.Instance.reference.Child(handPath).GetValueAsync();
 
         List<CardInfo> handCards = CardsManager.Instance.DataSnapshotToCards(handSnapshot);
 
@@ -222,7 +214,7 @@ public class HandsManager : MonoBehaviour {
     public async Task SaveNewHand(string uid, List<CardInfo> hand) {
         // Get the room
         string latestRoomPath = "user2latest_room/" + PlayerPrefs.GetString("uid");
-        DataSnapshot latestRoomSnapshot = await FirebaseDatabase.DefaultInstance.GetReference(latestRoomPath).GetValueAsync();
+        DataSnapshot latestRoomSnapshot = await FirebaseData.Instance.reference.Child(latestRoomPath).GetValueAsync();
 
         string currentRoom = latestRoomSnapshot.Value.ToString();
 

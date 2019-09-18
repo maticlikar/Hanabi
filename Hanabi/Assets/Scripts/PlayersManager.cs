@@ -18,8 +18,6 @@ public class PlayersManager : MonoBehaviour {
     }
 
     public async Task InitializePlayerOrder() {
-        print("InitializePlayerOrder");
-
         Player[] players = PhotonNetwork.PlayerList;
 
         string[] playerUIDs = players.Select((p) => p.UserId).ToArray();
@@ -29,8 +27,6 @@ public class PlayersManager : MonoBehaviour {
         string playersJson = Utility.Instance.ArrayToJson(playerUIDs);
 
         await SavePlayerOrder(playersJson);
-
-        print("/InitializePlayerOrder");
     }
 
     public async Task SavePlayerOrder(string playersJson) {

@@ -30,7 +30,7 @@ public class FireworksDropZone : MonoBehaviour, IDropHandler {
         int number = card.number;
 
         // Check if this card can be placed
-        if (/*number == fireworkProgress + 1*/true) {
+        if (number == fireworkProgress + 1) {
             // Set up card
             Transform parent = FireworksManager.Instance.ColorToFireworkProgressParent(color);
             card.transform.SetParent(parent);
@@ -40,8 +40,9 @@ public class FireworksDropZone : MonoBehaviour, IDropHandler {
 
             FireworksManager.Instance.photonView.RPC(
                 "UpdateFireworksProgressUI",
-                RpcTarget.All,
-                color
+                RpcTarget.Others,
+                color,
+                number
             );
 
             await HandsManager.Instance.DrawCard(card.GetComponent<DraggableCard>().initialSiblingIndex);

@@ -27,8 +27,6 @@ public class CardsManager : MonoBehaviour {
     }
 
     public async Task ShuffleAndSaveCards() {
-        print("ShuffleAndSaveCards");
-
         CardInfo[] cards = GetAllCards().ToArray();
         Utility.Instance.ShuffleArray(cards);
 
@@ -40,7 +38,6 @@ public class CardsManager : MonoBehaviour {
         string currentRoom = latestRoomSnapshot.Value.ToString();
 
         await FirebaseData.Instance.reference.Child("active_rooms").Child(currentRoom).Child("deck").SetRawJsonValueAsync(cardJson);
-        print("/ShuffleAndSaveCards");
     }
 
     public List<CardInfo> GetAllCards() {
@@ -98,7 +95,7 @@ public class CardsManager : MonoBehaviour {
         return c;
     }
 
-    public void InstantiateNewCard(CardInfo c, Transform parent) {
+    public GameObject InstantiateNewCard(CardInfo c, Transform parent) {
         Card card = Instantiate(cardPrefab, parent, false).GetComponent<Card>();
 
         if (parent.name.Equals("MyHand")) {
@@ -110,6 +107,8 @@ public class CardsManager : MonoBehaviour {
 
         card.backgroundImage.color = StringToColor(c.color);
         card.numberText.text = c.number.ToString();
+
+        return card.gameObject;
     }
 
     public Color StringToColor(string c) {

@@ -1,19 +1,19 @@
 ﻿<Properties StartupConfiguration="{203F4D0E-28D1-3522-4D11-9B74BC97B5A1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PopUpsManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs">
     <Files>
-      <File FileName="Assets/Scripts/FirebaseData.cs" Line="34" Column="1" />
+      <File FileName="Assets/Scripts/FirebaseData.cs" Line="21" Column="30" />
       <File FileName="Assets/Scripts/PhotonConnect.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ScreenManager.cs" />
+      <File FileName="Assets/Scripts/ScreenManager.cs" Line="12" Column="15" />
       <File FileName="Assets/Scripts/PhotonChatHandler.cs" Line="137" Column="1" />
       <File FileName="Assets/Scripts/PopUpsManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PopUpWindow.cs" />
+      <File FileName="Assets/Scripts/PopUpWindow.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PhotonRooms.cs" Line="52" Column="1" />
       <File FileName="Assets/Scripts/MainScreenManager.cs" Line="38" Column="46" />
-      <File FileName="Assets/Scripts/Utility.cs" />
+      <File FileName="Assets/Scripts/Utility.cs" Line="15" Column="1" />
       <File FileName="Assets/Scripts/Friend.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SocialScreenManager.cs" />
+      <File FileName="Assets/Scripts/SocialScreenManager.cs" Line="83" Column="1" />
       <File FileName="Assets/Scripts/PhotonReadyUp.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/RoomMember.cs" />
+      <File FileName="Assets/Scripts/RoomMember.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Card.cs" Line="7" Column="25" />
       <File FileName="Assets/Scripts/CardInfo.cs" Line="9" Column="1" />
       <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
@@ -21,24 +21,31 @@
       <File FileName="Assets/Scripts/Persistence.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Hand.cs" Line="7" Column="2" />
       <File FileName="Assets/Scripts/LogOutputHandler.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CardsManager.cs" Line="34" Column="1" />
-      <File FileName="Assets/Scripts/HandsManager.cs" Line="98" Column="73" />
+      <File FileName="Assets/Scripts/CardsManager.cs" Line="100" Column="1" />
+      <File FileName="Assets/Scripts/HandsManager.cs" Line="27" Column="23" />
       <File FileName="Assets/Scripts/FireworksManager.cs" Line="86" Column="1" />
       <File FileName="Assets/Scripts/DraggableCard.cs" Line="55" Column="26" />
       <File FileName="Assets/Scripts/HandDropZone.cs" Line="20" Column="28" />
-      <File FileName="Assets/Scripts/NotValidDropZone.cs" Line="9" Column="1" />
-      <File FileName="Assets/Scripts/FireworksDropZone.cs" Line="17" Column="1" />
-      <File FileName="Assets/Scripts/DiscardManager.cs" Line="25" Column="86" />
+      <File FileName="Assets/Scripts/NotValidDropZone.cs" Line="10" Column="2" />
+      <File FileName="Assets/Scripts/FireworksDropZone.cs" Line="34" Column="13" />
+      <File FileName="Assets/Scripts/DiscardManager.cs" Line="38" Column="52" />
       <File FileName="Assets/Scripts/PlayersManager.cs" Line="36" Column="60" />
+      <File FileName="Assets/Scripts/DiscardDropZone.cs" Line="13" Column="1" />
+      <File FileName="Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs" Line="506" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Hanabi" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="PopUpsManager.cs" selected="True" />
+              <Node name="Photon" expanded="True">
+                <Node name="PhotonUnityNetworking" expanded="True">
+                  <Node name="Code" expanded="True">
+                    <Node name="PhotonNetworkPart.cs" selected="True" />
+                  </Node>
+                </Node>
               </Node>
+              <Node name="Scripts" expanded="True" />
             </Node>
           </Node>
         </State>
