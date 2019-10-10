@@ -40,6 +40,7 @@ public class HandDropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
+        Debug.Log("OnPointerEnter");
         if (eventData.pointerDrag == null) {
             return;
         }
@@ -54,6 +55,7 @@ public class HandDropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
     }
 
     public void OnPointerExit(PointerEventData eventData) {
+        Debug.Log("OnPointerExit");
         if(eventData.pointerDrag == null) {
             return;
         }
