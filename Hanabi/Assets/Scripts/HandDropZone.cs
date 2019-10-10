@@ -18,7 +18,7 @@ public class HandDropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, I
 
         HandsManager.Instance.photonView.RPC(
             "UpdateHandUI",
-            RpcTarget.Others,
+            RpcTarget.All,
             PlayerPrefs.GetString("uid")
         );
 

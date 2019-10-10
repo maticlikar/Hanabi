@@ -53,10 +53,10 @@ public class PhotonReadyUp : MonoBehaviour, IOnEventCallback {
         GameObject roomMember = MainScreenManager.Instance.FindRoomMember(uid);
 
         if (ready) {
-            MainScreenManager.Instance.readyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ready";
+            MainScreenManager.Instance.readyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Un-Ready";
             PhotonNetwork.RaiseEvent(ReadyToggleEvent, "1 " + PlayerPrefs.GetString("uid"), raiseEventOptions, sendOptions);
         } else {
-            MainScreenManager.Instance.readyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Not Ready";
+            MainScreenManager.Instance.readyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ready Up";
             PhotonNetwork.RaiseEvent(ReadyToggleEvent, "-1 " + PlayerPrefs.GetString("uid"), raiseEventOptions, sendOptions);
         }
     }

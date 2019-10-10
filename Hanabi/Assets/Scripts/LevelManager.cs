@@ -30,6 +30,7 @@ public class LevelManager : MonoBehaviour {
         if (PhotonNetwork.IsMasterClient) {
             await FireworksManager.Instance.InitializeFireworkProgress();
             await PlayersManager.Instance.InitializePlayerOrder();
+            await TurnManager.Instance.InitializeFirstTurn();
             await DiscardManager.Instance.InitializeDiscardTop();
             await CardsManager.Instance.ShuffleAndSaveCards();
             await HandsManager.Instance.DistributeHands();

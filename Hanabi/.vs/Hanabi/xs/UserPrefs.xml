@@ -1,37 +1,37 @@
 ﻿<Properties StartupConfiguration="{203F4D0E-28D1-3522-4D11-9B74BC97B5A1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CardsManager.cs">
     <Files>
       <File FileName="Assets/Scripts/FirebaseData.cs" Line="21" Column="30" />
-      <File FileName="Assets/Scripts/PhotonConnect.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ScreenManager.cs" Line="12" Column="15" />
-      <File FileName="Assets/Scripts/PhotonChatHandler.cs" Line="137" Column="1" />
-      <File FileName="Assets/Scripts/PopUpsManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PopUpWindow.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PhotonRooms.cs" Line="52" Column="1" />
-      <File FileName="Assets/Scripts/MainScreenManager.cs" Line="38" Column="46" />
-      <File FileName="Assets/Scripts/Utility.cs" Line="15" Column="1" />
-      <File FileName="Assets/Scripts/Friend.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SocialScreenManager.cs" Line="83" Column="1" />
-      <File FileName="Assets/Scripts/PhotonReadyUp.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/RoomMember.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Card.cs" Line="7" Column="25" />
-      <File FileName="Assets/Scripts/CardInfo.cs" Line="9" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/LevelManager.cs" Line="30" Column="44" />
-      <File FileName="Assets/Scripts/Persistence.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Hand.cs" Line="7" Column="2" />
-      <File FileName="Assets/Scripts/LogOutputHandler.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CardsManager.cs" Line="100" Column="1" />
-      <File FileName="Assets/Scripts/HandsManager.cs" Line="27" Column="23" />
-      <File FileName="Assets/Scripts/FireworksManager.cs" Line="86" Column="1" />
-      <File FileName="Assets/Scripts/DraggableCard.cs" Line="55" Column="26" />
-      <File FileName="Assets/Scripts/HandDropZone.cs" Line="20" Column="28" />
-      <File FileName="Assets/Scripts/NotValidDropZone.cs" Line="10" Column="2" />
-      <File FileName="Assets/Scripts/FireworksDropZone.cs" Line="34" Column="13" />
-      <File FileName="Assets/Scripts/DiscardManager.cs" Line="38" Column="52" />
-      <File FileName="Assets/Scripts/PlayersManager.cs" Line="36" Column="60" />
-      <File FileName="Assets/Scripts/DiscardDropZone.cs" Line="13" Column="1" />
-      <File FileName="Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs" Line="506" Column="1" />
+      <File FileName="Assets/Scripts/PhotonConnect.cs" />
+      <File FileName="Assets/Scripts/ScreenManager.cs" />
+      <File FileName="Assets/Scripts/PhotonChatHandler.cs" />
+      <File FileName="Assets/Scripts/PopUpsManager.cs" />
+      <File FileName="Assets/Scripts/PopUpWindow.cs" />
+      <File FileName="Assets/Scripts/PhotonRooms.cs" />
+      <File FileName="Assets/Scripts/MainScreenManager.cs" />
+      <File FileName="Assets/Scripts/Utility.cs" />
+      <File FileName="Assets/Scripts/Friend.cs" />
+      <File FileName="Assets/Scripts/SocialScreenManager.cs" />
+      <File FileName="Assets/Scripts/PhotonReadyUp.cs" />
+      <File FileName="Assets/Scripts/RoomMember.cs" />
+      <File FileName="Assets/Scripts/Card.cs" />
+      <File FileName="Assets/Scripts/CardInfo.cs" />
+      <File FileName="Assets/Scripts/GameManager.cs" />
+      <File FileName="Assets/Scripts/LevelManager.cs" />
+      <File FileName="Assets/Scripts/Persistence.cs" />
+      <File FileName="Assets/Scripts/Hand.cs" />
+      <File FileName="Assets/Scripts/LogOutputHandler.cs" />
+      <File FileName="Assets/Scripts/CardsManager.cs" Line="41" Column="6" />
+      <File FileName="Assets/Scripts/HandsManager.cs" />
+      <File FileName="Assets/Scripts/FireworksManager.cs" />
+      <File FileName="Assets/Scripts/DraggableCard.cs" />
+      <File FileName="Assets/Scripts/HandDropZone.cs" />
+      <File FileName="Assets/Scripts/NotValidDropZone.cs" />
+      <File FileName="Assets/Scripts/FireworksDropZone.cs" Line="62" Column="36" />
+      <File FileName="Assets/Scripts/DiscardManager.cs" />
+      <File FileName="Assets/Scripts/DiscardDropZone.cs" />
+      <File FileName="Assets/Scripts/PlayersManager.cs" />
+      <File FileName="Assets/Scripts/TurnManager.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -40,12 +40,12 @@
             <Node name="Assets" expanded="True">
               <Node name="Photon" expanded="True">
                 <Node name="PhotonUnityNetworking" expanded="True">
-                  <Node name="Code" expanded="True">
-                    <Node name="PhotonNetworkPart.cs" selected="True" />
-                  </Node>
+                  <Node name="Code" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Scripts" expanded="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="CardsManager.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -54,7 +54,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e4cd6549-150a-45ad-b98e-e87d3c7d32f0" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5170f611-6ace-4040-b8f6-9170476337fe" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
